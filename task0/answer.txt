@@ -1,0 +1,15 @@
+# Base image olaraq sonuncu ubuntu versiyasını istifadə edirik
+FROM ubuntu:latest
+
+# APT paketlərini yeniləyirik
+RUN apt-get update
+
+# Quraşdırılmış proqram təminatını yeniləyirik (-y bayrağı avtomatik təsdiq üçündür)
+RUN apt-get upgrade -y
+
+# Konteyner işə düşəndə "Hello, World!" yazısını ekrana çıxarırıq
+CMD echo "Hello, World!"
+
+
+#yoxlamaq ucun
+docker build -t softy-pinko:task0 .
