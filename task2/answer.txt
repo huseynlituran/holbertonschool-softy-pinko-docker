@@ -1,0 +1,34 @@
+# task1-i kopyalayıb task2 yaradırıq
+cp -r task1 task2
+cd task2
+
+# back-end qovluğu yaradıb köhnə faylları ora atırıq
+mkdir back-end
+mv api.py Dockerfile back-end/
+
+# front-end qovluğu yaradıb daxilinə keçirik
+mkdir front-end
+cd front-end
+
+# Lazım olan repozitoriyanı klonlayırıq
+git clone https://github.com/atlas-school/softy-pinko-front-end
+
+
+
+
+
+
+# nginx in config fayli
+
+server {
+    listen 9000;
+    server_name localhost;
+
+    # Faylların olduğu əsas qovluq (Dockerfile-da bura kopyalayacağıq)
+    root /var/www/html/softy-pinko-front-end;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
